@@ -1,0 +1,47 @@
+mixin meta(path)
+  meta(charset="UTF-8")
+  meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0")
+  meta(name="format-detection" content="telephone=no,email=no,address=no")
+  meta(name="description" content=pageDescription)
+  meta(name="keywords" content=pageKeywords)
+
+  //- OGP
+  meta(property="og:title" content=pageOgpTitle)
+  meta(property="og:type" content=pageOgpType)
+  meta(property="og:image" content="http://domain/assets/img/ogp.png")
+  meta(property="og:description" content=pageDescription)
+  meta(property="og:url" content="http://domain/" + pageUrl)
+  meta(property="og:site_name" content="サイト名")
+  meta(property="og:locale" content=lang)
+  //- meta(property="og:image" content=pageOgpImage)個別に対応せず、全部同じでOKなので
+
+  //- OGP Facebook insights
+  //- meta(property="fb:admins" content="")情報を貰えば設定できる
+  //- meta(property="fb:app_id" content="")情報を貰えば設定できる
+  //- /OGP Facebook insights
+
+  //- OGP Twitter Cards
+  meta(name="twitter:card" content="summary_large_image")
+  meta(name="twitter:title" content=pageOgpTitle)
+  meta(name="twitter:description" content=pageDescription)
+  meta(name="twitter:image" content="http://domain/assets/img/ogp.png")
+  //- meta(name="twitter:site" content="@")これは任意
+  //- /OGP Twitter Cards
+
+  //- /OGP
+
+  block title
+    title #{pageTitle}
+    link(rel="shortcut icon", href=path + "assets/img/favicon.ico")
+
+  block css
+    //- link(href='//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css', rel='stylesheet')
+    link(rel="stylesheet" href=path + "assets/css/font-awesome.css")
+    link(rel="stylesheet" href=path + "assets/css/style.css")
+
+  block js
+    script(src=path + "assets/js/jquery-3.2.1.min.js")
+    script(src=path + "assets/js/sp_header_nav.js")
+    script(src=path + "assets/js/common.js")
+    script(src=path + "assets/js/wow.js")

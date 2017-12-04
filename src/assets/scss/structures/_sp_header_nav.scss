@@ -1,0 +1,231 @@
+/* Menu */
+body {
+  height: auto;
+  overflow: visible;
+}
+
+body.show-menu {
+  height: 100%;
+  overflow: hidden;
+}
+
+@include min-screen($BREAK_POINT_TABLET) {
+  .menu-btn, .menu {
+    display: none;
+  }
+}
+
+@include max-screen($BREAK_POINT_TABLET) {
+  .menu-btn {
+    /* ヘッダー 三本線ボタンのカバー */
+    .menu-btn-wrapper {
+      position: fixed;
+      top: 9px;
+      right: 22px;
+
+      border-radius: 50%;
+      height: 47px;
+      -webkit-transition: all 400ms;
+              transition: all 400ms;
+      width: 47px;
+      z-index: $Z_SP_NAVI_MENU_BTN_WRAPPER;
+    }
+  }
+
+  .clicked {
+    transform: rotate(360deg);
+    -webkit-transition: all 900ms;
+            transition: all 900ms;
+  }
+
+  /* ヘッダー 三本線ボタンのカバー下の実際の部分 */
+  .menu-btn span {
+    position: absolute;
+    top: 50%;
+    right: 0;
+
+    background-color: #ffffff;
+    border-radius: 10px;
+    display: block;
+    height: 2px;
+    margin-left: -11px;
+    -webkit-transform: translate(0%, -50%);
+            transform: translate(0%, -50%);
+    -webkit-transition: all 400ms cubic-bezier(0.4, 0.39, 0.37, 1.11);
+            transition: all 400ms cubic-bezier(0.4, 0.39, 0.37, 1.11);
+    width: 21px;
+    z-index: $Z_SP_NAVI_MENU_BTN;
+  }
+
+  .menu-btn .top {
+    margin-top: -8px;
+    width: 35px;
+  }
+  .menu-btn .mid {
+    margin-top: 3px;
+    width: 27px;
+  }
+  .menu-btn .btm {
+    margin-top: 14px;
+    width: 20px;
+  }
+
+  .show-menu {
+    .menu-btn {
+      span {
+        background-color: #ffffff;
+        width: 27px;
+      }
+    }
+  }
+
+  .show-menu .menu-btn .top {
+    margin-top: 0;
+    transform: translate(0%, -50%) rotate(45deg);
+  }
+
+
+  .show-menu .menu-btn {
+    background-color: rgba(27, 27, 27, 0);
+  }
+
+  .show-menu .menu-btn .btm {
+    margin-top: 0;
+    -webkit-transform: translate(0%, -50%) rotate(-45deg);
+            transform: translate(0%, -50%) rotate(-45deg);
+  }
+
+  .show-menu .menu-btn .mid {
+    opacity: 0;
+    -webkit-transform: translate(-20%, -50%);
+            transform: translate(-20%, -50%);
+  }
+
+  /* ヘッダー ボタン押したらびよんと伸びる背景 */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    background-image:    -moz-linear-gradient(to right, #1c1c1c, #000000);
+    background-image: -webkit-linear-gradient(to right, #1c1c1c, #000000);
+    background-image:         linear-gradient(to right, #1c1c1c, #000000);
+    -webkit-clip-path: circle(0px at top right);
+            clip-path: circle(0px at top right);
+    display: block;
+    height: 100%;
+    opacity: 0;
+    -webkit-transition: all 0.4s cubic-bezier(0.4, 0.39, 0.37, 1.11);
+            transition: all 0.4s cubic-bezier(0.4, 0.39, 0.37, 1.11);
+    width: 100%;
+    z-index: $Z_SP_NAVI_MENU_OVERLAY;
+  }
+
+  .show-menu .menu-overlay {
+    // visibility: visible;
+    -webkit-clip-path: circle(200% at top right);
+            clip-path: circle(200% at top right);
+    // right: 0;
+    opacity: 0.9;
+  }
+
+  /* ボタンを押したら出てくる実際のヘッダーナビ部分のtxt */
+  .menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+
+    color: #ffffff;
+    font-size: 1.8rem;
+    height: 100%;
+    letter-spacing: 2px;
+    overflow-y: scroll;
+    padding-bottom: 20px;
+    padding-left: 0;
+    padding-top: 20%;
+    width: 100%;
+    z-index: $Z_SP_NAVI_MENU;
+    text-align: center;
+
+
+    ul {
+      font-size: 16px;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 30px;
+      opacity: 0;
+      padding: 0;
+      -webkit-transform: translateY(20px);
+              transform: translateY(20px);
+      -webkit-transition: all 0.4s;
+              transition: all 0.4s;
+    }
+
+    a {
+      color: #ffffff;
+      font-size: 18px;
+      letter-spacing: 4px;
+      text-decoration: none;
+    }
+  }
+
+  .show-menu .menu li {
+    opacity: 1;
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+
+  .show-menu {
+    .menu {
+      left: 0;
+      .appear01 {
+        -webkit-transition-delay: 0.2s;
+                transition-delay: 0.2s;
+      }
+      .appear02 {
+        -webkit-transition-delay: 0.3s;
+                transition-delay: 0.3s;
+      }
+      .appear03 {
+        -webkit-transition-delay: 0.4s;
+                transition-delay: 0.4s;
+      }
+      .appear04 {
+        -webkit-transition-delay: 0.5s;
+                transition-delay: 0.5s;
+      }
+      .appear05 {
+        -webkit-transition-delay: 0.6s;
+                transition-delay: 0.6s;
+      }
+    }
+  }
+}
+
+@include max-screen($BREAK_POINT_SP_iPhone6) {
+  .menu {
+    font-size: 18px;
+    padding-left: 0;
+    padding-top: 30%;
+    text-align: center;
+
+    ul {
+      font-size: 14px;
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 30px;
+      opacity: 0;
+      padding: 0;
+      -webkit-transform: translateY(20px);
+              transform: translateY(20px);
+      -webkit-transition: all 0.4s;
+              transition: all 0.4s;
+    }
+  }
+}
