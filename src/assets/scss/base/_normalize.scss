@@ -336,17 +336,7 @@ img {
   height: auto;
 }
 
-// テキストをセレクトした時のスタイル
-// h1, h2, h3, h4, h5, span, li, a, p, th, td {
-//   &::selection {
-//     background: #ffd237;
-//   }
-// }
-
-// SVGのスタイル
-.cls-1 {
-  fill: none;
-  stroke: #fff;
-  stroke-width: 1px;
-  fill-rule: evenodd;
+ul {
+  margin: 0;
+  padding: 0;
 }
