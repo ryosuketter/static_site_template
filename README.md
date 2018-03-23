@@ -17,5 +17,5 @@
 - firefox, Safari, Chrome = 最新版
 
 ## SP
-- iOS = 8以上
+- iOS = 10以上
 - Android(chrome & firefox)
